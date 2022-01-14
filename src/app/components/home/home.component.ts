@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private weatherService: WeatherService,
     private favoritesService: FavoritesService
-  ) {}
+  ) { }
 
   countryName: string;
   autoCompleteData: CountryInfoModel[] = [];
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   storageCheck: any[] = [];
   autoCompleteCountryNumber: number = 0;
   headlineText: string = '';
+  acceptPostion: boolean = false;
 
   ngOnInit(): void {
     const storage = localStorage.getItem('favorite');
@@ -45,7 +46,10 @@ export class HomeComponent implements OnInit {
     if (this.autoCompleteData.length <= 0) {
       navigator.geolocation.getCurrentPosition((position) => {
         if (position) {
+          this.acceptPostion = true;
           this.onLoadingGetGeoInformation(position);
+        } else {
+          this.acceptPostion = false;
         }
       });
     }
@@ -171,6 +175,7 @@ export class HomeComponent implements OnInit {
 
   searchForWeatherWithAutoComplete() {
     try {
+      this.acceptPostion = true;
       if (!this.countryName) {
         this.customAlert(
           'Warning...',
