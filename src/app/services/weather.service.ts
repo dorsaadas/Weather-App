@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class WeatherService {
-  apiKey: string = 'frFiBGSWgU9glxo5fiv608R9chQiG2ZB';
+  apiKey: string = '29yy8rldKrJllCkb31PAU6G2AzHwQAvG';
 
   constructor(private httpClient: HttpClient) {}
 

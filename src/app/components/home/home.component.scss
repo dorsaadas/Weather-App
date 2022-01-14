@@ -16,6 +16,7 @@
   margin-top: 100px;
   text-align: center;
   font-weight: bold;
+
   h1 {
     text-decoration: underline;
   }
@@ -67,21 +68,25 @@
 @media only screen and (max-width: 1420px) {
   .five-day-container {
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 155px;
+    margin-top: 105px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .five-day-container {
     grid-template-columns: 1fr 1fr;
-    margin-top: 105px;
+    margin-top: 75px;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .five-day-container {
     grid-template-columns: 1fr;
-    margin-top: 55px;
+    margin-top: 10px;
+  }
+
+  .favorite-button {
+    display: block;
   }
 
   .temp-text {
@@ -91,6 +96,7 @@
   .search-input {
     width: 250px !important;
   }
+
 }
 
 .change-country-btn {

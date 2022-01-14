@@ -257,6 +257,7 @@ export class HomeComponent implements OnInit {
           this.currentConditionsData.push(currentConditionsDataObj);
         });
       });
+    this.acceptPostion = true;
   }
 
   searchForFiveDayInformation(key) {

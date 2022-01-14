@@ -49,7 +49,7 @@
                 {{toTemp}}
               </p>
               <ng-container *ngIf="!checkFavoriteLocation(this.autoCompleteData[this.autoCompleteCountryNumber])">
-                <button mat-button class="fav-btn" color="warn"
+                <button mat-button class="fav-btn" color="accent"
                   (click)="addFavorite(this.autoCompleteData[this.autoCompleteCountryNumber],fiveDaysData[this.autoCompleteCountryNumber])">Add
                   to
                   Favorite
