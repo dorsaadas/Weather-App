@@ -1,7 +1,8 @@
 <div class="search-div">
   <mat-form-field appearance="legacy" class="search-input">
     <mat-label>Weather Of Which Country You want to search</mat-label>
-    <input matInput [(ngModel)]="countryName" (keydown.enter)="searchForWeatherWithAutoComplete()">
+    <input matInput [(ngModel)]="countryName" (keydown.enter)="searchForWeatherWithAutoComplete()"
+      oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'');">
   </mat-form-field>
   <button button mat-icon-button matTooltip="Search for Weather" (click)="searchForWeatherWithAutoComplete()">
     <mat-icon matSuffix>search</mat-icon>
