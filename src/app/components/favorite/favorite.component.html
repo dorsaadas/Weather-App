@@ -1,0 +1,30 @@
+<ng-container *ngIf="storageCheck.length !== 0">
+  <div class="temp-btn">
+    <p class="temp-text">Change From <button mat-button (click)="changeTemp()">{{fromTemp}} </button> To
+      {{toTemp}}
+    </p>
+  </div>
+  <div class="five-days-information">
+    <div class="five-day-container">
+      <mat-card class="five-day-card" *ngFor="let item of storageCheck" (click)="displayCardOnMainPage(item)">
+        <mat-card-title-group>
+          <mat-card-title>{{item.fav.localizedName }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p>Min Temperature: {{item.info.temperatureMinimum | temp:this.fromTemp}} <i
+                class="wi wi-fw wi-{{this.fromTemp.toLowerCase()}}"></i></p>
+            <p>Max Temperature: {{item.info.temperatureMaximum | temp:this.fromTemp}} <i
+                class="wi wi-fw wi-{{this.fromTemp.toLowerCase()}}"></i></p>
+            <img class="weather-icon" src="../../../assets/icons/{{item.info.dayIcon}}-s.png" alt="Weather Icon">
+
+          </mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="storageCheck.length === 0">
+  <div class="empty-favorite-location-div">
+    <h1>You don't have Favorite Locations</h1>
+  </div>
+</ng-container>

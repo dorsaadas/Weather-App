@@ -1,0 +1,61 @@
+.temp-btn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.five-day-container {
+  margin-top: 105px;
+  margin-left: 20px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  .five-day-card {
+    max-width: 300px;
+    margin-bottom: 8px;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: width 500ms, height 500ms, background-color 500ms, transform 300ms;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 1420px) {
+  .five-day-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 155px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .five-day-container {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 105px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .five-days-information {
+    margin: 55px;
+
+    .five-day-container {
+      grid-template-columns: 1fr;
+      margin-top: 55px;
+    }
+  }
+}
+
+.weather-icon {
+  width: 115px;
+  position: absolute;
+  top: 25px;
+  left: 175px;
+}
+
+.empty-favorite-location-div {
+  text-align: center;
+  margin-top: 55px
+}

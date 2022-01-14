@@ -1,0 +1,107 @@
+.search-div {
+  display: block;
+  text-align: center;
+  margin-top: 4vh;
+
+  .search-input {
+    width: 450px;
+  }
+}
+
+.temp-text {
+  letter-spacing: 2px;
+}
+
+.card-container {
+  border: 1px solid transparent;
+  width: 70vw;
+  margin-left: 15vw;
+  height: fit-content;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px black;
+
+  .card {
+    .mat-card-sm-image {
+      margin-left: 15px;
+      margin-bottom: 10px;
+      height: fit-content;
+      width: 80px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+    }
+  }
+}
+
+.favorite-button {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.card {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.five-day-container {
+  margin-top: 105px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  .five-day-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+  }
+}
+
+@media only screen and (max-width: 1420px) {
+  .five-day-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 155px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .five-day-container {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 105px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .five-day-container {
+    grid-template-columns: 1fr;
+    margin-top: 55px;
+  }
+
+  .temp-text {
+    letter-spacing: 0px;
+  }
+
+  .search-input {
+    width: 250px !important;
+  }
+}
+
+.change-country-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headline-text {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.loader-div {
+  text-align: center;
+  margin-top: 120px;
+
+  img {
+    border: 1px solid transparent;
+    border-radius: 50px;
+    background-color: inherit;
+  }
+}

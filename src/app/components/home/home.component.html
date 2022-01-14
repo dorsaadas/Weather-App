@@ -1,0 +1,88 @@
+<div class="search-div">
+  <mat-form-field appearance="legacy" class="search-input">
+    <mat-label>Weather Of Which Country You want to search</mat-label>
+    <input matInput [(ngModel)]="countryName" (keydown.enter)="searchForWeatherWithAutoComplete()">
+  </mat-form-field>
+  <button button mat-icon-button matTooltip="Search for Weather" (click)="searchForWeatherWithAutoComplete()">
+    <mat-icon matSuffix>search</mat-icon>
+  </button>
+</div>
+
+<ng-container *ngIf="fiveDaysData.length <= 0">
+  <div class="loader-div">
+    <img src="../../../assets/loaders/cloud-loading.gif" alt="">
+  </div>
+</ng-container>
+
+<ng-container *ngIf="fiveDaysData.length > 0">
+  <ng-container *ngIf="this.autoCompleteData[this.autoCompleteCountryNumber]">
+    <div class="card-container ">
+      <ng-container *ngIf="this.autoCompleteData.length > 1">
+        <div class="change-country-btn">
+          <button mat-button color="primary" (click)="changeCounty('min')">Previous Country</button>
+          <button mat-button color="accent" (click)="changeCounty('plus')">Next Country</button>
+        </div>
+      </ng-container>
+      <mat-card class="card ">
+        <mat-card-title-group>
+          <mat-card-title>City: {{this.autoCompleteData[this.autoCompleteCountryNumber].localizedName }}
+          </mat-card-title>
+          <mat-card-subtitle>Country : {{ this.autoCompleteData[this.autoCompleteCountryNumber].countryLocalizedName}}
+            <br>
+            <ng-container *ngIf="this.currentConditionsData.length >= 1">
+              <p>Today Temperature:
+                {{this.currentConditionsData[this.autoCompleteCountryNumber].temperature | temp:this.fromTemp}}
+                <i class="wi wi-fw wi-{{this.fromTemp.toLowerCase()}}"></i>
+              </p>
+            </ng-container>
+            <h2 class="headline-text">{{this.headlineText}}</h2>
+          </mat-card-subtitle>
+          <img mat-card-sm-image
+            src="../../../assets/country-icons-svg/{{this.autoCompleteData[this.autoCompleteCountryNumber].countryID}}.svg"
+            alt="Country Flag">
+        </mat-card-title-group>
+        <mat-card-content>
+          <div class="favorite-button">
+            <p class="temp-text">Change From <button mat-button (click)="changeTemp()">{{fromTemp}} </button> To
+              {{toTemp}}
+            </p>
+            <ng-container *ngIf="!checkFavoriteLocation(this.autoCompleteData[this.autoCompleteCountryNumber])">
+              <button mat-button class="fav-btn" color="warn"
+                (click)="addFavorite(this.autoCompleteData[this.autoCompleteCountryNumber],fiveDaysData[this.autoCompleteCountryNumber])">Add
+                to
+                Favorite
+                <mat-icon>favorite_border</mat-icon>
+              </button>
+            </ng-container>
+            <ng-container *ngIf="checkFavoriteLocation(this.autoCompleteData[this.autoCompleteCountryNumber])">
+              <button mat-button class="fav-btn" color="warn"
+                (click)="removeFavorite(this.autoCompleteData[this.autoCompleteCountryNumber])">Remove From Favorite
+                <mat-icon>remove_circle_outline</mat-icon>
+              </button>
+            </ng-container>
+
+          </div>
+
+          <div class="five-days-information">
+            <div class="five-day-container">
+              <mat-card class="five-day-card" *ngFor="let item of fiveDaysData">
+                <mat-card-title-group>
+                  <mat-card-title>{{item.date |date :'ccc'}} <img src="../../../assets/icons/{{item.dayIcon}}-s.png"
+                      alt="Weather Icon"></mat-card-title>
+                  <mat-card-subtitle>
+                    <p>Min Temperature: {{item.temperatureMinimum | temp:this.fromTemp}} <i
+                        class="wi wi-fw wi-{{this.fromTemp.toLowerCase()}}"></i></p>
+                    <p>Max Temperature: {{item.temperatureMaximum | temp:this.fromTemp}} <i
+                        class="wi wi-fw wi-{{this.fromTemp.toLowerCase()}}"></i></p>
+                  </mat-card-subtitle>
+                </mat-card-title-group>
+
+
+              </mat-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</ng-container>

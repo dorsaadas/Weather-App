@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <span>Weather App</span>
+  <span class="spacer"></span>
+  <ng-container>
+    <nav>
+      <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+      <a mat-button routerLink="/favorite" routerLinkActive="active">Favorite</a>
+    </nav>
+    <mat-slide-toggle [formControl]="toggleTheme">
+      <mat-icon *ngIf="!isChecked">
+        light_mode
+      </mat-icon>
+      <mat-icon *ngIf="isChecked">
+        dark_mode
+      </mat-icon>
+    </mat-slide-toggle>
+  </ng-container>
+</mat-toolbar>
+
+
+<router-outlet>
+</router-outlet>

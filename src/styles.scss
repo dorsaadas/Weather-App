@@ -1,0 +1,21 @@
+@import "./app/theme.scss";
+@import "../src/assets/weather-icons-master/css/weather-icons.css";
+@import "../src/assets/weather-icons-master/css/weather-icons-wind.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.light-theme {
+  @include angular-material-theme($light-theme);
+}
+
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+}
